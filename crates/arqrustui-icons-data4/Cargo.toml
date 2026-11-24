@@ -1,0 +1,13 @@
+[package]
+name = "arqrustui-icons-data4"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "ArqRustUI icon pack data (part 4 of 8: `help` to `mov_file`). Use it through the arqrustui crate."
+license.workspace = true
+documentation = "https://docs.rs/arqrustui-icons-data4"
+keywords = ["icons", "arqrustui"]
+categories = ["gui"]
+include = ["src/**", "ico/**", "png/**", "svg/**", "Cargo.toml", "LICENSE"]
+
+[dependencies]

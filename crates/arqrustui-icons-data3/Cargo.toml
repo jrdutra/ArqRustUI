@@ -1,0 +1,13 @@
+[package]
+name = "arqrustui-icons-data3"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "ArqRustUI icon pack data (part 3 of 8: `eps_file` to `hearing`). Use it through the arqrustui crate."
+license.workspace = true
+documentation = "https://docs.rs/arqrustui-icons-data3"
+keywords = ["icons", "arqrustui"]
+categories = ["gui"]
+include = ["src/**", "ico/**", "png/**", "svg/**", "Cargo.toml", "LICENSE"]
+
+[dependencies]

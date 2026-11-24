@@ -1,0 +1,90 @@
+[package]
+name = "arqrustui"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "Native Windows GUI library in pure Rust: only std plus direct FFI to Win32, with no external crates."
+license = "MIT"
+readme = "README.md"
+documentation = "https://docs.rs/arqrustui"
+keywords = ["gui", "windows", "win32", "native", "ui"]
+categories = ["gui", "os::windows-apis"]
+# Só o que o crate precisa para compilar e ser documentado; os ícones vêm das crates
+# de `crates/` (que o cargo já deixa de fora por terem `Cargo.toml` próprio).
+include = [
+    "src/**",
+    "assets/branding/arqrust-logo.ico",
+    "assets/branding/README.md",
+    "examples/**",
+    "tests/**",
+    "docs/**",
+    "Cargo.toml",
+    "BIBLIOTECA.md",
+    "BIBLIOTECA.en.md",
+    "README.md",
+    "README.en.md",
+    "CHANGELOG.md",
+    "CHANGELOG.en.md",
+    "LICENSE",
+]
+
+[package.metadata.docs.rs]
+# O crate inteiro é `#![cfg(windows)]`: sem um alvo Windows a documentação sairia vazia.
+default-target = "x86_64-pc-windows-msvc"
+targets = ["x86_64-pc-windows-msvc"]
+all-features = true
+
+[workspace]
+# O pacote de ícones: a fachada `arqrustui-icons` e as crates de dados (até 9 MB cada,
+# para caber no limite de 10 MB do crates.io). Veja `assets/icons/README.md`.
+members = ["crates/*"]
+resolver = "2"
+
+# Versão única das dez crates: para publicar uma versão nova, troque `0.1.0` aqui
+# (no pacote e nas dependências abaixo). Veja docs/RELEASING.md.
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+license = "MIT"
+
+[workspace.dependencies]
+arqrustui-icons = { version = "0.1.0", path = "crates/arqrustui-icons" }
+arqrustui-icons-data1 = { version = "0.1.0", path = "crates/arqrustui-icons-data1" }
+arqrustui-icons-data2 = { version = "0.1.0", path = "crates/arqrustui-icons-data2" }
+arqrustui-icons-data3 = { version = "0.1.0", path = "crates/arqrustui-icons-data3" }
+arqrustui-icons-data4 = { version = "0.1.0", path = "crates/arqrustui-icons-data4" }
+arqrustui-icons-data5 = { version = "0.1.0", path = "crates/arqrustui-icons-data5" }
+arqrustui-icons-data6 = { version = "0.1.0", path = "crates/arqrustui-icons-data6" }
+arqrustui-icons-data7 = { version = "0.1.0", path = "crates/arqrustui-icons-data7" }
+arqrustui-icons-data8 = { version = "0.1.0", path = "crates/arqrustui-icons-data8" }
+
+[lib]
+name = "arqrustui"
+path = "src/lib.rs"
+
+[features]
+default = ["icons"]
+# Embute o pacote de 392 ícones (módulo `arqrustui::icons`), cujos bytes vêm da crate
+# própria `arqrustui-icons`. Sem ele, `IconAsset` e `IconSource` continuam disponíveis
+# para ícones próprios.
+icons = ["dep:arqrustui-icons"]
+
+[[example]]
+name = "icons"
+required-features = ["icons"]
+
+# Somente crates próprias da ArqRust; nenhum crate de terceiros. As do pacote de
+# ícones vivem em `crates/` e são publicadas junto (veja docs/RELEASING.md).
+[dependencies]
+arqrustui-icons = { workspace = true, optional = true }
+
+[dev-dependencies]
+
+[build-dependencies]
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+strip = true

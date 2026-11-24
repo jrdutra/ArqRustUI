@@ -1,0 +1,13 @@
+[package]
+name = "arqrustui-icons-data8"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "ArqRustUI icon pack data (part 8 of 8: social network icons). Use it through the arqrustui crate."
+license = "MIT AND CC-BY-4.0"
+documentation = "https://docs.rs/arqrustui-icons-data8"
+keywords = ["icons", "arqrustui"]
+categories = ["gui"]
+include = ["src/**", "ico/**", "png/**", "svg/**", "Cargo.toml", "LICENSE", "FONT_AWESOME_LICENSE.txt", "THIRD_PARTY_NOTICES.md", "SOCIAL_ICONS_ORIGIN.md"]
+
+[dependencies]

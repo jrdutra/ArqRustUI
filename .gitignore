@@ -1,0 +1,39 @@
+# Cargo builds and package archives, including nested development builds.
+target/
+/debug/
+/release/
+*.crate
+
+# Compiler intermediates accidentally written outside target/.
+*.pdb
+*.ilk
+*.obj
+*.rmeta
+*.rlib
+
+# Formatter/editor backups and temporary files.
+**/*.rs.bk
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.vs/
+.idea/
+
+# Local development/tool caches.
+.cache/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local work archives, not library sources.
+/Claude outputs/
+
+# OS-generated metadata.
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Cargo.lock is kept for reproducible workspace development.
+# Icon sources, licenses, examples, documentation and screenshots are versioned.

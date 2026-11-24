@@ -1,0 +1,23 @@
+[package]
+name = "arqrustui-icons"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "ArqRustUI icon pack with 392 icons (.ico from 16 to 256 px, .png and some .svg), as bytes. Use it through the arqrustui crate."
+license.workspace = true
+documentation = "https://docs.rs/arqrustui-icons"
+readme = "README.md"
+keywords = ["icons", "arqrustui", "ico", "png"]
+categories = ["gui"]
+include = ["src/**", "Cargo.toml", "README.md", "LICENSE"]
+
+# Os dados ficam em 8 crates de até 9 MB (limite do crates.io); esta só os reúne.
+[dependencies]
+arqrustui-icons-data1.workspace = true
+arqrustui-icons-data2.workspace = true
+arqrustui-icons-data3.workspace = true
+arqrustui-icons-data4.workspace = true
+arqrustui-icons-data5.workspace = true
+arqrustui-icons-data6.workspace = true
+arqrustui-icons-data7.workspace = true
+arqrustui-icons-data8.workspace = true
